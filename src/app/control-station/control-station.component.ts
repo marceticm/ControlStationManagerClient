@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class ControlStationComponent implements OnInit {
   controlStations: any;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.getControlStations();
