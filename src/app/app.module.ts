@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { ControlStationComponent } from './control-station/control-station.component';
 import { DxDataGridModule } from 'devextreme-angular';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
@@ -14,7 +13,6 @@ import { RegisterComponent } from './register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ControlStationComponent,
     NavComponent,
     HomeComponent,
     RegisterComponent
