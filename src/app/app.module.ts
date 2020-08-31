@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DxDataGridModule } from 'devextreme-angular';
 import { FormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -14,6 +15,9 @@ import { RegisterComponent } from './register/register.component';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { AlertifyService } from './_services/alertify.service';
 import { ControlStationListComponent } from './control-station-list/control-station-list.component';
+import { StationItemListComponent } from './station-item-list/station-item-list.component';
+import { appRoutes } from './routes';
+import { AuthGuard } from './_guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -21,19 +25,22 @@ import { ControlStationListComponent } from './control-station-list/control-stat
     NavComponent,
     HomeComponent,
     RegisterComponent,
-    ControlStationListComponent
+    ControlStationListComponent,
+    StationItemListComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     DxDataGridModule,
     FormsModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     AuthService,
     ErrorInterceptorProvider,
-    AlertifyService
+    AlertifyService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
