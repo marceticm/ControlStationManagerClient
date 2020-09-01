@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-control-station-list',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./control-station-list.component.css']
 })
 export class ControlStationListComponent implements OnInit {
+  controlStations: any;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.getControlStations();
+  }
+
+  getControlStations() {
+    this.http.get('https://localhost:44359/api/ControlStation').subscribe(response => {
+      this.controlStations = response;
+    }, error => {
+      console.log(error);
+    });
   }
 
 }
