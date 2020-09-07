@@ -1,6 +1,8 @@
-<dx-data-grid [showBorders]="true" [hoverStateEnabled]="true" [dataSource]="controlStations">
-  <dxi-column dataField="id"></dxi-column>
-  <dxi-column dataField="name"></dxi-column>
-  <dxi-column dataField="type"></dxi-column>
-  <dxi-column dataField="address"></dxi-column>
-</dx-data-grid>
+<div class="col-md-8 mt-4 mx-auto">
+  <dx-data-grid #targetDataGrid [showBorders]="true" [hoverStateEnabled]="true" [dataSource]="controlStations">
+    <dxi-column dataField="id"></dxi-column>
+    <dxi-column dataField="name"></dxi-column>
+    <dxi-column dataField="type"></dxi-column>
+    <dxi-column dataField="address"></dxi-column>
+  </dx-data-grid>
+</div>
