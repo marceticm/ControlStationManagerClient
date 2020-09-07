@@ -18,6 +18,8 @@ import { ControlStationListComponent } from './control-station-list/control-stat
 import { StationItemListComponent } from './station-item-list/station-item-list.component';
 import { appRoutes } from './routes';
 import { AuthGuard } from './_guards/auth.guard';
+import { UserService } from './_services/user.service';
+import { ControlStationService } from './_services/control-station.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { AuthGuard } from './_guards/auth.guard';
     AuthService,
     ErrorInterceptorProvider,
     AlertifyService,
-    AuthGuard
+    AuthGuard,
+    UserService,
+    ControlStationService
   ],
   bootstrap: [AppComponent]
 })

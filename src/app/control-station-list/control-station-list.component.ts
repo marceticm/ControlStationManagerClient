@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { ControlStationService } from '../_services/control-station.service';
+import { ControlStation } from '../_models/control-station';
+import { AlertifyService } from '../_services/alertify.service';
+import { DxDataGridComponent } from 'devextreme-angular';
 
 @Component({
   selector: 'app-control-station-list',
@@ -7,19 +10,20 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./control-station-list.component.css']
 })
 export class ControlStationListComponent implements OnInit {
-  controlStations: any;
+  controlStations: ControlStation[];
+  dataGrid: DxDataGridComponent;
 
-  constructor(private http: HttpClient) { }
+  constructor(private stationService: ControlStationService, private alertify: AlertifyService) { }
 
   ngOnInit() {
-    this.getControlStations();
+    this.loadControlStations();
   }
 
-  getControlStations() {
-    this.http.get('https://localhost:44359/api/ControlStation').subscribe(response => {
-      this.controlStations = response;
+  loadControlStations() {
+    this.stationService.getControlStations().subscribe((controlStations: ControlStation[]) => {
+      this.controlStations = controlStations;
     }, error => {
-      console.log(error);
+      this.alertify.error(error);
     });
   }
 
